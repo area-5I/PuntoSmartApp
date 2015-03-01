@@ -15,6 +15,7 @@ gsmEntel.open(function(error){
       console.log(data + '\n');
     });
     gsmEntel.write("at");
+    initEstadoDeLlamada()
   }
 
 
