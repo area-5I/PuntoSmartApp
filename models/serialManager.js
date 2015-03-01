@@ -25,24 +25,24 @@ var llamar = function(numero){
 };
 
 var colgar = function(){
-  gsmEntel.write("ath\r\n");
+  gsmEntel.write("ath \r\n");
 };
 
 function initEstadoDeLlamada(){
   setTimeout(function(){
-    gsmEntel.write("at+glcc\n");
+    gsmEntel.write("at+clcc \r\n");
   },1000);
   setTimeout(function(){
-    gsmEntel.write("at+glcc\n");
+    gsmEntel.write("at+clcc \r\n");
   },2000);
   setTimeout(function(){
-    gsmEntel.write("at+glcc\n");
+    gsmEntel.write("at+clcc \r\n");
   },3000);
   setTimeout(function(){
-    gsmEntel.write("at+glcc\n");
+    gsmEntel.write("at+clcc \r\n");
   },4000);
   setTimeout(function(){
-    gsmEntel.write("at+glcc\n");
+    gsmEntel.write("at+clcc \r\n");
   },5000);
 }
 
