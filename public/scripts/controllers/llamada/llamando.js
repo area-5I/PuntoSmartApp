@@ -52,6 +52,10 @@ angular.module('smartPointViewsApp')
         $scope.msgLlamando = false;
     }
 
+    $scope.colgar = function() {
+      socket.emit('colgar');
+    };
+
     $scope.$on('$destroy', function() {
         $scope.altoContar();
     });
