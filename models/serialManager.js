@@ -20,12 +20,12 @@ gsmEntel.open(function(error){
 });
 
 var llamar = function(numero){
-  gsmEntel.write("atd"+numero+";\n");
+  gsmEntel.write("atd"+numero+";\r\n");
   initEstadoDeLlamada();
 };
 
 var colgar = function(){
-  gsmEntel.write("ath\n");
+  gsmEntel.write("ath\r\n");
 };
 
 function initEstadoDeLlamada(){
