@@ -13,14 +13,16 @@ socketio.sockets.on("connection",function(socket){
 
   socket.on("llamar",function(numero){
     console.log("llamando al numero %s",numero);
+    models.llamar(numero);
     setTimeout(function(){
         socketio.sockets.emit("LlamadaContestada");
     },5000);
 
   });
 
-  socket.on("holaMundo",function(){
-      console.log("hola mundo");
+  socket.on("colgar",function(){
+      console.log("llamada colgada");
+      models.colgar();
   });
 
 });
