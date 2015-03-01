@@ -1,0 +1,89 @@
+<div class="buscarAyuda">
+    <div class="buscador">
+        <i class="fa fa-search fa-inverse search"></i>
+        <input ng-model="search.name" type="text" class="entradaBuscar" ng-click="togglekeyboard()"/>
+        <i class="fa fa-times-circle fa-inverse delete" ng-show="deleteShow" ng-click="deleteX()"></i>
+    </div>
+    <div class="serviciosPanel" ng-click="hideKeyboard()" ng-if="icon==null">
+        <div class="inner">
+            <div class="pais-box" ng-click="selectItem($index)" ng-repeat="itemServicio in servicios |filter:search">
+                <div class="pais-flagbox" ng-if="itemServicio.code!=null">
+                    <span class="pais-flag {{itemServicio.code}}"></span>
+                </div>
+                <div class="pais-title">{{itemServicio.name}}</div>
+                <div class="pais-number" ng-if="itemServicio.code!=null">{{itemServicio.number}}</div>
+                <div class="call-servicio" ng-if="itemServicio.code!=null"></div>
+            </div>
+        </div>
+    </div>
+    <div class="serviciosPanel" ng-click="hideKeyboard()" ng-if="icon!=null">
+        <div class="inner">
+            <div class="service-box" ng-class="animateService($index)"  ng-click="selectService($index)" ng-repeat="itemServicio in servicios |filter:search">
+                <div class="service-inner-box darkoragePanel">
+                    <div class="principal-information">
+                        <img class="image-service" ng-src="images/ayuda/{{icon}}.svg"/>
+                        <div class="title-service">"<strong>{{itemServicio.name}}</strong>"</div>
+                        <div class="motto-service">Sabor Inigualable</div>
+                    </div>
+                    <div class="secondary-information" ng-class="animateService($index
+                        )">
+                        <div class="direccion-service"><e class="subtitle-service">DIRECCION</e>{{itemServicio.direccion}}</div>
+                        <div class="phone-service"><e class="subtitle-service">TELEFONO</e><o>{{itemServicio.number}} <i class="fa fa-phone"></i></o></div>
+                        <div class="phone-service"><e class="subtitle-service">TELEFONO</e><o>79797797 <i class="fa fa-phone"></i></o></div>
+                        <div class="web-service"><e class="subtitle-service">WEB</e><o>www.{{itemServicio.name}}.com.bo</o></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-sref="ayuda" class="atrasAyuda"><img src="images/otros/atras.svg"/></div>
+</div>
+<keyboard input-text="search.name" show-keyboard-panel="showKeyboardpanel" type-execute="find"></keyboard>
+
+<modal-view show='statesShow' width='70%' height='80%' tipemodal="blueModal">
+    <div class="titleCountry"><span class="pais-flag {{selectedItem.code}}"></span><h1> {{selectedItem.name}}  +{{selectedItem.number}}</h1></div>
+    <div class="statesPanel">
+        <ul class="statesList">
+            <li class="stateItem">
+                <div class="stateName">
+                    <i class="fa fa-chevron-right"></i>
+                    <h3>La Paz</h3>
+                </div>
+                <div class="stateUse">
+                    <h3>Usar Codigo</h3>
+                    <i class="fa fa-check"></i>
+                </div>
+            </li>
+            <li class="stateItem">
+                <div class="stateName">
+                    <i class="fa fa-chevron-right"></i>
+                    <h3>Santa Cruz</h3>
+                </div>
+                <div class="stateUse">
+                    <h3>Usar Codigo</h3>
+                    <i class="fa fa-check"></i>
+                </div>
+            </li>
+            <li class="stateItem">
+                <div class="stateName">
+                    <i class="fa fa-chevron-right"></i>
+                    <h3>Cochabamba</h3>
+                </div>
+                <div class="stateUse">
+                    <h3>Usar Codigo</h3>
+                    <i class="fa fa-check"></i>
+                </div>
+            </li>
+            <li class="stateItem">
+                <div class="stateName">
+                    <i class="fa fa-chevron-right"></i>
+                    <h3>Sucre</h3>
+                </div>
+                <div class="stateUse">
+                    <h3>Usar Codigo</h3>
+                    <i class="fa fa-check"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+</modal-view>

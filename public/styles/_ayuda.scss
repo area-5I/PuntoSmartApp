@@ -1,0 +1,423 @@
+//ayuda views
+$colorYellow:#FEEE00;
+$colorDarkorange:#CB6120;
+$colorWhite:#FFFFFF;
+$colorTeal:#5EA099 ;
+.yellowPanel {
+    @include panel($colorYellow,#9F9024);
+    .name {
+        color: black;
+    }
+}
+
+.darkoragePanel {
+    @include panel($colorDarkorange,#B44C17);
+}
+
+.whitePanel {
+    @include panel($colorWhite,#B1B1B1);
+    .name {
+        color: black;
+    }
+}
+
+.tealPanel {
+    @include panel($colorTeal,#3C635D);
+    .name {
+        color: black;
+    }
+}
+
+.ayudaView {
+    width:100%;
+    height:100%;
+}
+
+.initAyuda {
+    @include flexPanel(flex,column,wrap,space-between,center,stretch,100%,82%,2% 0% 0% 0%,0);
+    transition: all 1s linear;
+}
+.initAyuda .Panel {
+    height: 15%;
+    .name {
+        font-size:0.9em;
+        margin-left: .5em;
+    }
+    .iconPanel {
+        flex: none;
+        &>img{
+            float: left;
+        }
+    }
+}
+
+.atrasAyuda {
+    height: 15%;
+    width: 19%;
+    margin:auto;
+    .atras {
+        width:100%;
+        height:100%;
+        border-radius: 50%;
+        img {
+            width: 60%;
+            height: 60%;
+            margin: 5%;
+        }
+    }
+}
+
+//Ayuda Buscar
+.buscarAyuda {
+    width: 100%;
+    @include flexPanel(flex,column,wrap,space-between,center,stretch,85%,95%,5% 0% 0% 6%,0);
+    .buscador {
+        @include flexChild(1,0 1 auto,stretch,10%,0% 0% 0% 4%,0);
+        width:95%;
+        font-size: 5em;
+        background-color: black;
+        opacity:.5;
+        border: 0.1em $colorBlue solid;
+        border-radius:4em;
+        .entradaBuscar {
+            font-size: 1em;
+            width:76%;
+            height: 90%;
+            text-align:center;
+            background-color: transparent !important;
+            color: $colorBlue;
+            border: 0px solid transparent;
+        }
+        .search {
+            font-size:1.4em;
+            margin-top: .2em;
+            float:left;
+            margin-left:.2em;
+        }
+        .delete {
+            font-size:1.4em;
+            margin-top: .2em;
+            float:right;
+            margin-right:.2em;
+            &:active {
+                margin-top:.1em;
+                font-size:1.5em;
+            }
+        }
+        &>input:focus {
+            outline: 0px solid transparent;
+            border: 0px solid transparent;
+        }
+    }
+
+    .serviciosPanel {
+        @include flexChild(1,0 1 auto,stretch,65%,0% 0% 0% 10%,0);
+        width:80%;
+        overflow: hidden;
+        border-radius: .5em;
+        overflow:hidden;
+        padding: .3em 1em;
+        .inner {
+            overflow:auto;
+            width:100%;
+            height:100%;
+            padding-right:50px;
+        }
+        .service-box {
+            width: 96%;
+            height: 18%;
+            background-color: $colorDarkorange;
+            margin-bottom: 8%;
+            display: block;
+            padding: 6% 3%;
+            border-radius:3em;
+            transition: all 500ms ease;
+        }
+        .service-box.yellowService {
+            background-color:$colorYellow;
+        }
+        .service-box.tealService {
+            background-color:$colorTeal;
+        }
+        .service-box.darkorangeService {
+            background-color:$colorDarkorange;
+        }
+        .service-box.information {
+            height: 45%;
+            .service-inner-box {
+                background-color: #B44C17;
+                .principal-information{
+                    height:40%;
+                }
+                .secondary-information.information {
+                    height:60%;
+                    width:100%;
+                    font-size: 2.5em;
+                    margin-left: 3%;
+                    margin-top: 4%;
+                    opacity:1;
+                    transition: font-size 400ms cubic-bezier(.92,.02,1,.01);
+                    .subtitle-service {
+                        font-weight: bold;
+                        margin-right: .3em;
+                    }
+                    .phone-service>o {
+                        background-color: white;
+                        color: $colorOrange;
+                        border-radius: 1em;
+                        padding: 0 .7em;
+                        i {
+                            color: $colorGreen;
+                        }
+                    }
+                }
+            }
+        }
+        .service-inner-box {
+            width: 98%;
+            height: 96%;
+            border: .3em solid white;
+            border-radius:3em;
+            color: white;
+            .principal-information {
+                width:100%;
+                height:100%;
+                .image-service {
+                    font-size:4em;
+                    margin-top: .1em;
+                    margin-left: 1.5%;
+                    width: 4em;
+                    height: 2.7em;
+                    float: left;
+                }
+                .title-service {
+                    width:63%;
+                    height:45%;
+                    font-size:4em;
+                    text-align: center;
+                    float:right;
+                    border-bottom: .1em solid white;
+                    margin-right: .2em;
+                }
+                .motto-service {
+                    width: 63%;
+                    height:45%;
+                    font-size: 2.5em;
+                    display: block;
+                    float:right;
+                    text-align: center;
+                }
+            }
+        }
+        .secondary-information {
+            height:0%;
+            width:0%;
+            font-size:0;
+            margin-top:40%;
+            transition: font-size 100ms cubic-bezier(.97,.34,.21,.66);
+        }
+        .pais-box {
+            width:100%;
+            height:14%;
+            display:block;
+            border-top: 0.2em solid $colorBlue;
+            .pais-flagbox {
+                width: 20%;
+                height:100%;
+                display:inline-block;
+                vertical-align:middle;
+                .pais-flag {
+                    margin-top:1.2em;
+                    display:inline-block;
+                    width: 9em;
+                    height: 6em;
+                    border-radius:2em;
+                }
+            }
+            .pais-title {
+                font-size: 3.2em;
+                display: inline-block;
+                vertical-align:middle;
+                color: white;
+            }
+            .pais-number {
+                float: right;
+                padding: 0.5em;
+                font-size: 2.5em;
+                background-color: $colorBlue;
+                color: white;
+                border-radius:0 0 .4em .4em;
+            }
+            .go {
+                float: right;
+                font-size: 2.5em;
+                margin-top: .8em;
+            }
+            .direccion-servicio {
+                display:block;
+                font-size: 1.6em;
+                background-color: $colorBlue;
+                color:white;
+                .direccion-name {
+                    display:inline;
+                    margin-left:1em;
+                }
+                .direccion-number {
+                    display:inline;
+                    float:right;
+                    margin-right: 1em;
+                }
+            }
+        }
+        .pais-box.ng-leave{
+            -webkit-transition: 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045) all;
+            -moz-transition: 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045) all;
+            -ms-transition: 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045) all;
+            -o-transition: 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045) all;
+            transition: 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045) all;
+            position: relative;
+            display: block;
+        }
+        .pais-box.ng-enter.animate-enter-active,.pais-box.ng-leave {
+            opacity: 1;
+            right: 0;
+        }
+
+        .pais-box.ng-leave.ng-leave-active,.pais-box.ng-enter{
+            opacity: 0;
+            right: -10em;
+        }
+    }
+    .atrasAyuda {
+        @include flexChild(1,0 1 auto,stretch,8%,0% 0% 0% 10%,0);
+        width: 18%;
+        margin: 0 auto;
+        border-radius: 8em;
+        padding: 3em 1em;
+        background-color: $colorBlue;
+        img {
+            width: 90%;
+            height: 100%;
+        }
+    }
+}
+
+.titleCountry {
+    color:white;
+    width:96%;
+    font-size: 2em;
+    height:8%;
+    text-align:center;
+    .pais-flag {
+        margin-top:.2em;
+        width: 2.6em;
+        height: 2.6em;
+        border-radius:2em;
+        float:right;
+    }
+}
+.statesPanel {
+    color:white;
+    width: 97.5%;
+    height: 89%;
+    margin-top: 1%;
+    background-color:#5d5d5d;
+    border-radius: 0 0 3em 3em;
+    .statesList {
+        height:100%;
+        .stateItem {
+            list-style:none;
+            text-decoration:none;
+            height: 8%;
+            font-size: 2.4em;
+            padding:.5em 0em 0em .3em;
+            border-bottom: 0.2em solid white;
+            .stateName {
+                width: 65%;
+                height:80%;
+                h3 {
+                    height:100%;
+                }
+                .fa {
+                    margin-top:.3em;
+                    float:left;
+                    margin-right:.2em;
+                }
+                margin-top: .2em;
+                float:left;
+            }
+            .stateUse {
+                float: right;
+                width: 30%;
+                margin-top:1em;
+                height:70%;
+                color:#5d5d5d;
+                background-color: white;
+                border-radius: .5em .5em 0 0;
+                line-height: 1.5em;
+                h3 {
+                    float: right;
+                    font-size:.8em;
+                    margin-right: .3em;
+                }
+                .fa {
+                    margin-top:.4em;
+                    float: right;
+                }
+            }
+        }
+    }
+}
+.servicePanel {
+    width: 97%;
+    height: 100%;
+    font-size: 1.6em;
+    color:white;
+    .serviceName {
+        height: 10%;
+        width:100%;
+        margin-bottom: 1em;
+        text-align:center;
+        .fa {
+            font-size: 2.5em;
+            float: right;
+            margin-top: .2em;
+        }
+    }
+    .serviceAddress {
+        margin-top:.3em;
+        height: 7%;
+        background-color:#5d5d5d;
+        font-size: 1.4em;
+        .fa {
+            float:left;
+            margin: 0 .5em;
+        }
+    }
+    .servicePhones {
+        width: 100%;
+        height: 64%;
+        margin-top:.3em;
+        border-radius:0 0 1.6em 1.6em;
+        background-color:#5d5d5d;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+        align-items: center;
+        .itemPhone {
+            font-size:1.5em;
+            list-style:none;
+            text-decoration:none;
+            width:42%;
+            height:20%;
+            line-height:1.3em;
+            .fa {
+                font-size:1.5em;
+                margin: 0 .2em;
+                float:left;
+            }
+        }
+    }
+}

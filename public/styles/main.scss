@@ -1,0 +1,324 @@
+// bower:scss
+// endbower
+
+
+/* Space out content a bit #A0974ba*/
+$colorOrange:#ec6a34;
+$colorGreen:#009d45;
+$colorBlue:#0974ba;
+$colorRed:#e41f25;
+@mixin clearSpace {
+    margin:0;
+    padding:0;
+}
+
+@mixin panel($normalColor, $hoverColor) {
+    color: white;
+    & {
+        background-color:$normalColor;
+    }
+    &:active {
+        background-color:$hoverColor;
+    }
+    &:selection {
+        background-color:$hoverColor;
+    }
+    &:focus {
+        background-color:$hoverColor;
+    }
+}
+
+@mixin flexPanel($display,$direction,$wrap,$justify,$content,$items,$width, $height, $padding, $margin) {
+    display: -webkit-$display;
+    display: $display;
+    -webkit-flex-direction: $direction;
+    flex-direction: $direction;
+    -webkit-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+    -webkit-justify-content: $justify;
+    justify-content: $justify;
+    -webkit-align-content: $content;
+    align-content: $content;
+    -webkit-box-align: $items;
+    -moz-box-align: $items;
+    -webkit-align-items: $items;
+    align-items: $items;
+    width: $width;
+    height: $height;
+    padding: $padding;
+}
+
+@mixin flexChild($order,$flex,$align,$height,$margin,$padding) {
+    //-webkit-box-ordinal-group: $order;
+    //-webkit-order: $order;
+    //order: $order;
+    //-webkit-box-flex: 0;
+    //-webkit-flex: $flex;
+    //flex: $flex;
+    //-webkit-align-self: $align;
+    //align-self: $align;
+    height:$height;
+    margin: $margin;
+    padding: $padding;
+}
+
+@font-face {
+    font-family: Gothic;
+    src: url(font/gothic.ttf);
+}
+
+* {
+    @include clearSpace;
+}
+
+body {
+    font: 71%/1.5 Gothic;
+    height:100vh;
+    overflow: hidden;
+}
+
+.container {
+    width:100%;
+    height:100%;
+}
+
+*::selection {
+    background:transparent;
+}
+video#videoFondo {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background-size: cover;
+}
+
+.withBlurry {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
+button {
+    background: none;
+    border: 0;
+}
+
+button:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.emergenciaHeader {
+    background-color: $colorRed;
+}
+
+.ayudaHeader {
+    background-color:$colorBlue;
+}
+
+.llamadasHeader {
+    background-color:$colorGreen;
+}
+
+.recargasHeader {
+    background-color:$colorOrange;
+}
+
+.inicioHeader {
+    background-color:#696a6a;
+}
+
+.header {
+    display: inline-flex;
+    width: 100%;
+    color: #ffffff;
+    padding: 0.1em 0;
+    transition: background-color 500ms linear;
+}
+
+#signalPanel {
+    padding-right: 8%;
+    padding-left: 1%;
+    width: 30%; 
+    ul {
+        @include clearSpace;
+        list-style: none;
+        display: inline-flex;
+        width: 100%;
+        li {
+            width: 2em;
+            height: 2em;
+            margin: 0.1em;
+            background-color: #ffffff;
+            border-radius: 1em;
+            transition: all 500ms linear;
+            opacity: 1;
+        }
+        li.ng-leave, li.ng-leave-active, li.ng-enter, li.ng-enter-active {
+            opacity: 0;
+            transition: all 500ms linear;
+        }
+    }
+}
+
+#hourPanel {
+    font-size: 3em;
+}
+
+.telefono {
+    height:95%;
+    width:100%;
+}
+
+//-----------------------------
+@keyframes slideOutLeft {
+to      { transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {  
+to      { -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+to      { -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(200%); }
+    to      { transform: translateX(0); }
+}
+
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(200%); }
+    to      { -moz-transform: translateX(0); }
+}
+
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(200%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+#transitiones.ng-enter,
+#transitiones.ng-leave {
+    position:absolute; 
+    left:30px; 
+    right:30px;
+    transition:0.5s all ease; 
+    -webkit-transition:0.5s all ease; 
+}
+
+#transitiones.ng-enter {
+    -webkit-animation:slideInRight 0.5s both ease;
+    animation:slideInRight 0.5s both ease; 
+}
+
+#transitiones.ng-leave {
+    -webkit-animation:slideOutLeft 0.5s both ease;
+    animation:slideOutLeft 0.5s both ease;   
+}
+//-----------------------------
+.Panel.change {
+    width: 10%;
+    height:12%;
+    transition: all 1s cubic-bezier(.77,.13,.06,.99);
+    .name {
+        display:none;
+        transition: all 1s cubic-bezier(.77,.13,.06,.99);
+    }
+    .iconPanel>img {
+        float:none;
+        width:1.5em;
+        height:1.5em;
+    }
+}
+.greenPanel.change {
+    transform: translate(-60%,500%);
+}
+.orangePanel.change {
+    transform: translate(65%,340%);
+}
+.redPanel.change {
+    transform: translate(180%,180%);
+}
+.bluePanel.change {
+    transform: translate(300%,20%);
+}
+//----------------------------
+
+.init {
+    @include flexPanel(flex,column,wrap,space-around,stretch,stretch,100%,100%,0%,0);
+}
+
+.initReposo {
+    @include flexPanel(inline-flex,row,wrap,space-around,stretch,stretch,100%,none,100% 0% 0% 0%,0);
+    .Panel {
+        height:100%;
+        margin:0;
+        padding: 0.2em 0.8em;
+        width: 10%;
+        &:hover {
+            .iconPanel>img {
+                width:1.6em;
+                height:1.6em;
+            }
+        }
+        .name {
+            display:none;
+        }
+        .iconPanel>img {
+            width:1.6em;
+            height:1.5em;
+            margin: .3em auto;
+        }
+    }
+}
+
+.Panel {
+    @include flexChild(1,0 1 auto,stretch,15%,2% 15%, 2% 5%);
+    color: #ffffff;
+    width: 60%;
+    border-radius: 0.5em;
+    font-size: 6em;
+    text-decoration: none;
+    display: inline-flex;
+    transition: all 1s cubic-bezier(.77,.13,.06,.99);
+    .name {
+    transition: all 1s cubic-bezier(.77,.13,.06,.99);
+    }
+}
+
+.Panel .name>p{
+    margin:0.4em 0;
+}
+.Panel .iconPanel {
+    flex: 1 0 auto;
+}
+
+.Panel .iconPanel>img{
+    width: 2em;
+    height: 2em;
+    float: right;
+    margin:0.2em 0;
+}
+
+.greenPanel {
+    @include panel($colorGreen,#69b42e);
+}
+
+.orangePanel {
+    @include panel($colorOrange,#c43703);
+}
+
+.redPanel {
+    @include panel($colorRed,#a60115);
+}
+
+.bluePanel {
+    @include panel($colorBlue,#02619d); 
+}
+
+//import file's style
+@import 'llamadas';
+@import 'recargas';
+@import 'emergencias';
+@import 'ayuda';
+@import 'keyboard';
+@import 'modaldialog';

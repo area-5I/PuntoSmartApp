@@ -1,0 +1,171 @@
+//emergencias view
+.emergenciaView {
+    width:100%;
+    height:100%;
+}
+
+.initEmergencia {
+    @include flexPanel(flex,column,wrap,space-around,stretch,stretch,100%,70%,12% 0% 0% 0%,0);
+    transition: all 1s linear;
+}
+.initEmergencia .Panel {
+    height: 20%;
+}
+
+.atrasEmergencia {
+    height: 15%;
+    width: 20%;
+    margin:auto;
+    .atras {
+        width:100%;
+        height:100%;
+        border-radius: 50%;
+        img {
+            width: 60%;
+            height: 60%;
+            margin: 5%;
+        }
+    }
+}
+
+//emergencias llamandoEmergencia
+@keyframes cambioColor {
+    0%,100% {
+        background-color:$colorRed;
+    }
+    50% {
+        background-color:$colorGreen;
+    }
+}
+
+@-webkit-keyframes cambioColor {
+    0%,25%,75%,100% {
+        background-color:$colorRed;
+    }
+    50% {
+        background-color:$colorGreen;
+    }
+}
+
+.llamandoEmergencia {
+    @include flexPanel(flex,column,wrap,space-around,stretch,stretch,70%,96%,8% 0% 0% 15%,0);
+    font-size: 4em;
+    .textLlamada {
+        margin-bottom:0;
+        position:absolute;
+        transform:translateY(-1.4em);
+        transition: all 500ms linear;
+    }
+    .textLlamada.ng-hide {
+        opacity: 0;
+    }
+
+    .Panel {
+        font-size:1.5em;
+        height:15%;
+        width:100%;
+        margin:0;
+        text-transform:uppercase;
+    }
+    .privadoEmergencia {
+        @include flexChild(1,0 1 auto,stretch,40%,0% 0% 0% 4%,0);
+        background-color: black;
+        opacity: .6;
+        padding: 0em .5em;
+        border-radius: .5em;
+        &>ul li {
+            position:relative;
+            list-style:none;
+            border-bottom:0.05em $colorRed solid;
+            padding-top: 0.5em;
+            opacity: 1;
+            .principalPrivado {
+                .nombrePrivado {
+                    margin-left:0.2em;
+                    display:inline-block;
+                    transform: translateY(-22%);
+                    color:white;
+                }
+                img {
+                    position:relative;
+                    margin-top:0.2em;
+                    width:1em;
+                    height:1em;
+                    background-color:$colorRed;
+                    padding: 0.2em;
+                    border-radius:0.2em;
+                    animation:4s cambioColor infinite;
+                }
+                .rightIcon {
+                    float:right;
+                    margin-top: 0.5em;
+                    color:$colorRed;
+                }
+            }
+            .adicionalPrivado {
+                display:block;
+                color:#fff;
+                background-color:$colorRed;
+                font-size:0.6em;
+                height:1.4em;
+                opacity:1;
+                .telefonoPrivado{display:inline-block;margin-left:2em;}
+                .direccionPrivado{ display:inline-block; float:right; margin-right:2em;}
+            }
+             .adicionalPrivado.ng-hide {
+                    opacity: 0;
+                    height: 0em;
+                }
+              .adicionalPrivado.ng-hide-add.ng-hide-add-active,
+               .adicionalPrivado.ng-hide-remove.ng-hide-remove-active {
+                    -webkit-transition: all linear .4s;
+                    transition: all linear .4s;
+                    height:1.4em;
+                }
+        }
+    }
+    .buttonEmergencia {
+        width:100%;
+        height: 13%;
+        .emergenciaColgar {
+            width: 60%;
+            height: 100%;
+            border-radius:6em;
+            margin-right:19%;
+            display:inline-block;
+            transition: all 250ms ease-out;
+            float:right;
+            img {
+                width:16em;
+                height:9em;
+            }
+        }
+        .emergenciaColgar.ng-hide {
+            margin-right:-50%;
+            opacity: 0;
+        }
+
+        .atrasEmergencia {
+            height: 100%;
+            width: 25%;
+            margin-top: 0;
+            margin-left: 34%;
+            margin-bottom: 0;
+            float: left;
+            .atras {
+                width:100%;
+                height:100%;
+                border-radius: 50%;
+                img {
+                    width: 60%;
+                    height: 60%;
+                    margin: 5%;
+                }
+            }
+            transition: all 250ms ease-out;
+        }
+        .atrasEmergencia.ng-hide {
+            margin-left:-50%;
+        }
+    }
+}

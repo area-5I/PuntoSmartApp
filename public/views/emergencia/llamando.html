@@ -1,0 +1,36 @@
+<div class="llamandoEmergencia">
+    <p class="textLlamada" ng-show="llamandoClick">...LLAMANDO</p>
+    <a ng-click="emergencia()" class="Panel" ng-class="{redPanel:!llamandoClick, greenPanel:llamandoClick}">
+        <div class="name">
+            <p>{{tipoEmergencia}}</p>
+        </div>
+        <div class="iconPanel" ng-if="!llamandoClick">
+           <img ng-src="images/menu/auricular.svg"/>
+        </div>
+        <div class="iconPanel" ng-if="llamandoClick">
+           <img ng-src="../images/informacion/{{tipoEmergencia}}.svg"/>
+        </div>
+    </a>
+    <div class="privadoEmergencia">
+        <ul>
+            <li ng-repeat="item in emergencias[tipoEmergencia]">
+                <div class="principalPrivado">
+                    <img ng-click="llamar($index)" src="../images/menu/auricular.svg"/><a class="nombrePrivado">{{item.nombre}}</a><i class=" rightIcon fa fa-caret-down fa-fw" ng-click="seleccionar($index)" ></i>
+            
+                </div>
+                <span class="adicionalPrivado" ng-show="seleccionado($index)">
+                    <p class="telefonoPrivado"><i class="fa fa-phone fa-fw"></i> {{item.telefono}}</p>
+                    <p class="direccionPrivado"><i class="fa fa-home fa-fw"></i> {{item.direccion}}</p>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="buttonEmergencia">
+        <button ng-click="colgar()" class="emergenciaColgar redPanel" ng-show="llamandoClick">
+            <img src="../images/otros/colgar.svg"/>
+        </button>
+        <div ui-sref="emergencia" class="atrasEmergencia" ng-hide="llamandoClick">
+            <button class="atras redPanel"><img src="../images/otros/atras.svg"/></button>
+        </div>
+    </div>
+</div>

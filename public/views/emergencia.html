@@ -1,0 +1,31 @@
+<div class="emergenciaView" ui-view>
+    <div class="initEmergencia">
+        <a ui-sref=".llamando({tipoEmergencia:'policia'})" class="redPanel Panel">
+            <div class="name">
+                <p>Policia</p>
+            </div>
+            <div class="iconPanel">
+                <img src="../images/informacion/policia.svg"/>
+            </div>
+        </a>
+        <a ui-sref=".llamando({tipoEmergencia:'bomberos'})" class="redPanel Panel">
+            <div class="name">
+                <p>Bomberos</p>
+            </div>
+            <div class="iconPanel">
+                <img src="../images/informacion/bomberos.svg"/>
+            </div>
+        </a>
+        <a ui-sref=".llamando({tipoEmergencia:'hospital'})" class="redPanel Panel">
+            <div class="name">
+                <p>Hospital</p>
+            </div>
+            <div class="iconPanel">
+                <img src="../images/menu/cruz_roja.svg"/>
+            </div>
+        </a>
+    </div>
+    <div ui-sref="home" class="atrasEmergencia">
+        <button class="atras redPanel"><img src="../images/otros/atras.svg"/></button>
+    </div>
+</div>

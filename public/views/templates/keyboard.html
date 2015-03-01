@@ -1,0 +1,53 @@
+<div class="keyboardDirective" ng-show="showkeyboardPanel">
+    <ul class="keyboard animatekey" ng-show="showkeyboard">
+        <li ng-click="teclar('q')" ng-class="casse" class="frontline">q</li>
+        <li ng-click="teclar('w')" ng-class="casse" class="frontline">w</li>
+        <li ng-click="teclar('e')" ng-class="casse" class="frontline">e</li>
+        <li ng-click="teclar('r')" ng-class="casse" class="frontline">r</li>
+        <li ng-click="teclar('t')" ng-class="casse" class="frontline">t</li>
+        <li ng-click="teclar('y')" ng-class="casse" class="frontline">y</li>
+        <li ng-click="teclar('u')" ng-class="casse" class="frontline">u</li>
+        <li ng-click="teclar('i')" ng-class="casse" class="frontline">i</li>
+        <li ng-click="teclar('o')" ng-class="casse" class="frontline">o</li>
+        <li ng-click="teclar('p')" ng-class="casse" class="frontline lastitem">p</li>
+        <li ng-click="teclar('a')" ng-class="casse" class=" akey">a</li>
+        <li ng-click="teclar('s')" ng-class="casse" >s</li>
+        <li ng-click="teclar('d')" ng-class="casse" >d</li>
+        <li ng-click="teclar('f')" ng-class="casse" >f</li>
+        <li ng-click="teclar('g')" ng-class="casse" >g</li>
+        <li ng-click="teclar('h')" ng-class="casse" >h</li>
+        <li ng-click="teclar('j')" ng-class="casse" >j</li>
+        <li ng-click="teclar('k')" ng-class="casse" >k</li>
+        <li ng-click="teclar('l')" ng-class="casse" >l</li>
+        <li ng-click="teclar('ñ')" ng-class="casse" class=" lastitem">ñ</li>
+        <li ng-click="shift()" class="shift specialkey">shift</li>
+        <li ng-click="teclar('z')" ng-class="casse" class="frontline">z</li>
+        <li ng-click="teclar('x')" ng-class="casse" class="frontline">x</li>
+        <li ng-click="teclar('c')" ng-class="casse" class="frontline">c</li>
+        <li ng-click="teclar('v')" ng-class="casse" class="frontline">v</li>
+        <li ng-click="teclar('b')" ng-class="casse" class="frontline">b</li>
+        <li ng-click="teclar('n')" ng-class="casse" class="frontline">n</li>
+        <li ng-click="teclar('m')" ng-class="casse" class="frontline">m</li>
+        <li ng-click="borrar()" class="delete specialkey lastitem"><img src="images/otros/borrarWhite.svg"></li>
+        <li ng-click="changeKeyboard()" class=" numeralkey specialkey">123</li>
+        <li ng-click="capslock()" class="capslock specialkey">Bloq</li>
+        <li ng-click="teclar(' ')" class="space lastitem">&nbsp;</li>
+        <li ng-click="executeExec()" class=" executeKey specialkey lastitem">{{execute.name}}</li>
+    </ul>
+    <ul class="keyboardNumeral animatekey" ng-hide="showkeyboard">
+        <li ng-click="teclar('1')" class="frontline firstkey">1</li>
+        <li ng-click="teclar('2')" class="frontline">2</li>
+        <li ng-click="teclar('3')" class="frontline lastkey">3</li>
+        <li ng-click="teclar('4')" class="frontline firstkey">4</li>
+        <li ng-click="teclar('5')" class="frontline">5</li>
+        <li ng-click="teclar('6')" class="frontline lastkey">6</li>
+        <li ng-click="teclar('7')" class="frontline firstkey">7</li>
+        <li ng-click="teclar('8')" class="frontline">8</li>
+        <li ng-click="teclar('9')" class="frontline">9</li>
+        <li ng-click="borrar()" class="delete specialkey lastitem"><img src="images/otros/borrarWhite.svg"></li>
+        <li ng-click="changeKeyboard()" class=" numeralkey specialkey">ABC</li>
+        <li ng-click="teclar('0')" class="frontline">0</li>
+        <li ng-click="teclar(' ')" class="space lastitem">&nbsp;</li>
+        <li ng-click="executeExec()" class=" executeKey specialkey lastitem">{{execute.name}}</li>
+    </ul>
+</div>

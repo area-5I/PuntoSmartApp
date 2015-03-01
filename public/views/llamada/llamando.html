@@ -1,0 +1,49 @@
+<div class="llamando">
+    <div class="teclado">
+    <div class="pantalla pantallaColorGreen">
+        <input type="text" ng-model="numero">
+        <div class="contador" ng-class="tiempoAgotado" ng-model="contadorFlag" ng-show="contadorFlag==true">
+            <p>{{tiempo}}</p>
+        </div>
+    </div>
+    <div ng-model="msgLlamando" ng-show="msgLlamando==true">
+      <p class="callText">...LLAMANDO</p>
+
+    </div>
+
+
+    </div>
+    <div class="subllamado" ui-view>
+        <div class="initLlamando">
+            <a ui-sref=".ubicacion" class="greenPanel Panel">
+                <div class="name">
+                    <p>Ubicacion</p>
+                </div>
+                <div class="iconPanel">
+                    <img src="../images/interaccion/ubicacion.svg"/>
+                </div>
+            </a>
+            <a ui-sref=".notas" class="greenPanel Panel">
+                <div class="name">
+                    <p>Notas</p>
+                </div>
+                <div class="iconPanel">
+                    <img src="../images/interaccion/notas.svg"/>
+                </div>
+            </a>
+            <a ui-sref=".juegos" class="greenPanel Panel">
+                <div class="name">
+                    <p>Juegos</p>
+                </div>
+                <div class="iconPanel">
+                    <img src="../images/interaccion/juegos.svg"/>
+                </div>
+            </a>
+            <a ui-sref="llamadas" class="redPanel Panel colgarPanel">
+                <div class="iconPanel">
+                    <img src="../images/otros/colgar.svg"/>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

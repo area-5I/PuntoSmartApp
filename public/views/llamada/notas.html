@@ -1,0 +1,25 @@
+<div class="initLlamando">
+    <div class="notebook">
+        <button class="iconoImprimir" ng-click="imprimirTexto()">
+            <img src="images/otros/impresora.svg"/>
+            <p>IMPRIMIR</p>
+        </button>
+        <textarea ng-click="hideKeyboard()" ng-model="miTexto" class="write" rows="6" cols="60">
+        </textarea>
+    </div>
+    <div class="buttonNotas">
+        <button ui-sref="llamadas" class="iconoColgar" ng-click="colgar()">
+            <img src="images/otros/colgar.svg"/>
+        </button>
+        <button ui-sref="llamando" class="iconoAtras">
+            <img src="images/otros/atras.svg"/>
+        </button>
+    </div>
+</div>
+<modal-view show='modalShown' width='70%' height='45%' tipemodal="greenModal">
+    <img class="imprimirModalImgPaper1" src="images/otros/imprimir_hoja.svg"/>
+    <img class="imprimirModalImg" src="images/otros/imprimir.svg"/>
+    <img class="imprimirModalImgPaper2" src="images/otros/imprimir_hoja.svg"/>
+    <h1 class="textoImprimirModal">IMPRIMIENDO</h1>
+</modal-view>
+<keyboard input-text="miTexto" show-keyboard-panel="showkeyboardPanel"></keyboard>

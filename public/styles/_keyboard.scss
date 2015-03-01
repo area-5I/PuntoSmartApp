@@ -1,0 +1,177 @@
+/*keyboard Directive style*/
+
+.keyboardDirective {
+    height: 28%;
+    width: 92%;
+    position: fixed;
+    z-index: 100;
+    top: 70%;
+    left:3%;
+}
+
+.keyboardDirective.ng-hide-add.ng-hide-add-active,
+.keyboardDirective.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+
+.keyboardDirective.ng-hide {
+    margin-top: 100%;
+}
+
+.keyboard {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    background-color: #1A1A1A;
+    opacity: .9;
+    padding: 1em;
+    border-radius: .5em .5em 3em 3em;
+    
+    li {
+        display:inline-block;
+        margin: 0 5px 5px 0;
+        width: 2em;
+        height: 2em;
+        text-align: center;
+        background: #000;
+        color:#fff;
+        font-size:3.2em;
+        border: 0.055em solid #f9f9f9;
+        border-radius: 1em;
+        line-height: 2em;
+        margin-right: .3em;
+        margin-bottom: .5em;
+        &:active {
+            position: relative;
+            top: 0.1em;
+            left: 0.1em;
+            border-color: #e5e5e5;
+        }
+    }
+    .akey {
+        margin-left: .9em;
+    }
+    .frontline {
+        margin-right: .42em;
+    }
+    .executeKey {
+        width: 4em;
+        margin-left: .3em;
+    }
+    .numeralkey {
+        width: 2.6em;
+    }
+    .specialkey {
+        background-color: #353535;
+    }
+    .lastitem {
+        margin-right: 0em;
+    }
+    .delete {
+        margin-right:0;
+        margin-left: 2em;
+        width: 2.2em;
+        img {
+            margin-top: .3em;
+            width: 60%;
+        }
+    }
+    .capslock {
+        width: 3em;
+    }
+    .space {
+        width: 56%;
+    }
+    .shift {
+        width: 2.2em;
+        margin-right: .8em;
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.keyboardNumeral {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    width: 52%;
+    background-color: #1A1A1A;
+    opacity: .9;
+    padding: 1em;
+    border-radius: .5em .5em 3em 3em;
+    margin:auto;
+    li {
+        display:inline-block;
+        margin: 0 5px 5px 0;
+        width: 2em;
+        height: 2em;
+        text-align: center;
+        background: #000;
+        color:#fff;
+        font-size:3.2em;
+        border: 0.055em solid #f9f9f9;
+        border-radius: 1em;
+        line-height: 2em;
+        margin-right: .3em;
+        margin-bottom: .5em;
+        &:active {
+            position: relative;
+            top: 0.1em;
+            left: 0.1em;
+            border-color: #e5e5e5;
+        }
+    }
+    .delete {
+        margin-right:0;
+        width: 2.3em;
+        img {
+            margin-top: .3em;
+            width: 60%;
+        }
+    }
+    .frontline {
+        margin-right: .42em;
+    }
+    .firstkey {
+        margin-left: 3em;
+    }
+    .space {
+        width: 35%;
+    }
+    .executeKey {
+        width: 2.5em;
+        margin-right: 0;
+    }
+    .numeralkey {
+        width: 2.5em;
+    }
+    .specialkey {
+        background-color: #353535;
+    }
+}
+
+.animatekey.ng-hide-add.ng-hide-add-active,
+.animatekey.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+
+.animatekey.ng-hide {
+    margin-top: 100%;
+}
+
+.keyboardNumeral.ng-hide-add.ng-hide-add-active,
+.keyboardNumeral.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+
+.keyboardNumeral.ng-hide {
+    margin-top: 100%;
+}

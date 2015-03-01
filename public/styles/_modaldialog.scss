@@ -1,0 +1,137 @@
+/* modal-dialog Directive style */
+.ng-modal-overlay {
+    position:absolute;
+    z-index:9999;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity: 0;
+}
+
+@-webkit-keyframes blinker {
+    0% {opacity:0;}
+    25% {opacity:.5;}
+    50% {opacity:1;}
+    75% {opacity:.5;}
+    100% {opacity:0;}
+} 
+
+@keyframes blinker {
+    0% {opacity:0;}
+    25% {opacity:.5;}
+    50% {opacity:1;}
+    75% {opacity:.5;}
+    100% {opacity: 0;}
+} 
+
+@-webkit-keyframes blinker2 {
+    0% {opacity:1;}
+    25% {opacity:.5;}
+    50% {opacity:0;}
+    75% {opacity:.5;}
+    100% {opacity: 1;}
+} 
+
+@keyframes blinker2 {
+    0% {opacity:1;}
+    25% {opacity:.5;}
+    50% {opacity:0;}
+    75% {opacity:.5;}
+    100% {opacity: 1;}
+} 
+
+.ng-modal-dialog {
+    z-index:10000;
+    position: absolute;
+    width: 50%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    box-shadow: 4px 4px 80px #000;
+    border-radius: 3em;
+    opacity: 0.9;
+    transition: all 500ms linear;
+    .recargaExitosa {
+        width: 22%;
+        height: 40%;
+        display: inline-block;
+        margin-top:20%;
+        margin-left:10%;
+    }
+    .imprimirModalImgPaper1 {
+        width: 25%;
+        height: 25%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 5%;
+        margin-bottom: -15%;
+        animation: blinker 1s infinite;
+    }
+    .imprimirModalImgPaper2 {
+        width: 25%;
+        height: 25%;
+        display: block;
+        margin: 0 auto;
+        animation: blinker2 1s infinite;
+    }
+    .imprimirModalImg {
+        width: 50%;
+        height: 50%;
+        display: block;
+        margin: auto;
+        margin-bottom: -15%;
+    }
+    .textoImprimirModal {
+        width: 100%;
+        text-align:center;
+        font-size:5em;
+        color: white;
+        margin-top:1em;
+    }
+    .textoRecargaExitosa {
+        display:inline-block;
+        height:80%;
+        width: 50%;
+        font-size: 7em;
+        color: white;
+        text-align:center;
+        margin-top:20%;
+    }
+    .iconoMensaje {
+        width: 20%;
+        font-size: 16em;
+        height: 30%;
+        margin: auto;
+        margin-top: 10%;
+        margin-bottom: 0%;
+    }
+}
+.ng-modal.ng-hide .ng-modal-dialog {
+    top: -50%; 
+}
+.orangeModal {
+    background-color:$colorOrange;
+}
+.greenModal {
+    background-color:$colorGreen;
+}
+.blueModal {
+    background-color:$colorBlue;
+}
+.ng-modal-dialog-content {
+    padding:10px;
+    text-align: left;
+    width:100%;
+    height:100%;
+}
+.ng-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 5px;
+    display: inline-block;
+}

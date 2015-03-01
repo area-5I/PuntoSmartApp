@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="styles/main.8525f411.css" />
+    <link rel="stylesheet" href="styles/vendor.25d883da.css" />
+    <link rel="stylesheet" href="styles/sass3r.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/flags/phoca-flags.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="smartPointViewsApp">
+
+    <div class="container" ng-controller="MainCtrl">
+        <div class="header" ng-class="headerColor()">
+            <div id="signalPanel">
+                <ul class="signal">
+                    <li class="signal-item" ng-repeat="itemPotency in potency"></li>
+                </ul>
+            </div>
+            <div id="hourPanel">
+                <a my-current-time></a>
+            </div>
+        </div>
+
+        <video id="videoFondo" ng-class="blurry()"  loop autoplay muted>
+            <source id="mp4" src="video/video3.mov" type="video/mp4">
+                <p>Your user agent does not support the HTML5 Video element.</p>
+        </video>
+
+      <div id="transitiones" class="telefono" ui-view></div>
+
+    <!-- bower:js -->
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+    <script src="bower_components/socket.io/index.js"></script>
+
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/llamadas.js"></script>
+        <script src="scripts/controllers/recarga.js"></script>
+        <script src="scripts/controllers/emergencia.js"></script>
+        <script src="scripts/controllers/ayuda.js"></script>
+        <script src="scripts/controllers/recarga/recargador.js"></script>
+        <script src="scripts/controllers/llamada/llamando.js"></script>
+        <script src="scripts/controllers/llamada/notas.js"></script>
+        <script src="scripts/controllers/emergencia/llamando.js"></script>
+        <script src="scripts/controllers/ayuda/buscar.js"></script>
+        <script src="scripts/controllers/llamada/ubicacion.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
