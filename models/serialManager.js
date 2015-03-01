@@ -14,12 +14,6 @@ gsmEntel.open(function(error){
     gsmEntel.on("data",function(data){
       console.log(data + '\n');
     });
-    gsmEntel.write("at\n");
-    llamar("44377592");
-    initEstadoDeLlamada()
-    setTimeout(function(){
-      colgar();
-    },3000);
   }
 
 
