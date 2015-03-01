@@ -19,7 +19,7 @@ gsmEntel.open(function(error){
     initEstadoDeLlamada()
     setTimeout(function(){
       colgar();
-    },1000);
+    },3000);
   }
 
 
