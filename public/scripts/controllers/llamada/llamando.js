@@ -16,7 +16,7 @@ angular.module('smartPointViewsApp')
     });
 
     socket.on('LlamadaTerminada',function(){
-      $location.path('/llamada/');
+      $location.path('/llamadas');
     });
 
 
