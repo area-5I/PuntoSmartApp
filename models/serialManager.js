@@ -30,8 +30,7 @@ gsmEntel.open(function(error){
 //apertura del puerto serial del tragamonedas
 coin.open(function(error){
   if(error){
-    console.log("no se pudo abrir el puerto del tragam
-onedas");
+    console.log("no se pudo abrir el puerto del tragamonedas");
   }else{
     console.log("tragamonedas ok");
     coin.on("data",function(data){
