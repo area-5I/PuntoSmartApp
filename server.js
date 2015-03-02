@@ -21,6 +21,11 @@ socketio.sockets.on("connection",function(socket){
       models.colgar();
   });
 
+  socket.on("PedirSaldo",function(){
+      socketio.sockets.emit("FijarSaldo",models.saldo);
+  });
+
+
 });
 
 module.exports.socketio = socketio;

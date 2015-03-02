@@ -10,12 +10,19 @@
 angular.module('smartPointViewsApp')
   .controller('LlamadasCtrl',['$scope','$location','changeColorHeader','$timeout','socket',function ($scope, $location,changeColorHeader,$timeout,socket) {
       changeColorHeader.setColor('llamadasHeader');
+      $scope.numero='';
+      $scope.moneda=0;
+
       socket.on("IngresoMoneda", function(monto){
           $scope.ingresoMoneda(monto);
       });
-      
-      $scope.numero='';
-      $scope.moneda=0;
+
+      socket.on("FijarSaldo", function(saldo){
+          $scope.moneda = saldo;
+      });
+
+      socket.emit("PedirSaldo");
+
       $scope.marcar=function(teclaPulsada) {
           $scope.numero=$scope.numero.concat(teclaPulsada);
       };
