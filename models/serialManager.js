@@ -1,5 +1,6 @@
 var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
+var server = require('../server')
 var sleep = require('sleep');
 var datos = "";
 
@@ -41,11 +42,12 @@ function initEstadoDeLlamada(){
 	if(estado == 0){
 	  console.log("llamada contestada");
 	  llamadaContestada = true;
+    server.socketio.sockets.emit("LlamadaContestada");
 	  clearInterval(interval);
 	}
     	datos = datos.substring(index+6,datos.length);
     },500);
-    
+
 }
 
 module.exports.llamar = llamar
