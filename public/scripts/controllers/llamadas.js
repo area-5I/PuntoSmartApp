@@ -10,6 +10,10 @@
 angular.module('smartPointViewsApp')
   .controller('LlamadasCtrl',['$scope','$location','changeColorHeader','$timeout','socket',function ($scope, $location,changeColorHeader,$timeout,socket) {
       changeColorHeader.setColor('llamadasHeader');
+      socket.on("IngresoMoneda", function(monto){
+          $scope.ingresoMoneda(monto);
+      });
+      
       $scope.numero='';
       $scope.moneda=0;
       $scope.marcar=function(teclaPulsada) {
@@ -30,10 +34,11 @@ angular.module('smartPointViewsApp')
           },500);
       };
       //Testing functionality
+      /*
       $timeout(function(){
           $scope.ingresoMoneda(1);
       },4000);
       $timeout(function(){
           $scope.ingresoMoneda(2);
-      },8000);
+      },8000);*/
   }]);
