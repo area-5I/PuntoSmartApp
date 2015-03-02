@@ -13,6 +13,11 @@ var coin = new SerialPort('/dev/ttyS2',{
   baudrate: 9600
 },false);
 
+var printer = new SerialPort('/dev/ttyS1',{
+  baudrate: 19200
+},false);
+
+
 gsmEntel.open(function(error){
   if(error){
     console.log("no se pudo abrir el puerto del dispositivo gsm Entel");
@@ -38,6 +43,16 @@ coin.open(function(error){
     });
   }
 });
+
+printer.open(function(error){
+  if(error){
+    console.log("no se pudo abrir el puerto de la impresora");
+  }else{
+    console.log("impresora ok");
+
+  }
+});
+
 
 var llamar = function(numero){
   gsmEntel.write("atd"+numero+";\r\n");
@@ -113,6 +128,14 @@ function coinProcess(data){
   }
 }
 
+var imprimirNota = function(nota){
+  printer.write(nota);
+  printer.write(10);
+  printer.write(10);
+  printer.write(10);
+}
 
-module.exports.llamar = llamar
-module.exports.colgar = colgar
+
+module.exports.llamar = llamar;
+module.exports.colgar = colgar;
+module.exports.imprimirNota = imprimirNota;

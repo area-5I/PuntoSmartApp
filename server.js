@@ -33,6 +33,7 @@ socketio.sockets.on("connection",function(socket){
 
   socket.on("ImprimirNota",function(texto){
     console.log(texto);
+    models.imprimirNota(texto);
   });
 
 
