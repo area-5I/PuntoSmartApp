@@ -49,7 +49,7 @@ angular.module('smartPointViewsApp')
             $scope.loadShow=false;
             $scope.successShow=true;
 
-        },4000);
+        },6000);
         $timeout(function(){
             $scope.successShow=false;
 
