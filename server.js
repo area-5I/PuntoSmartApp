@@ -14,10 +14,6 @@ socketio.sockets.on("connection",function(socket){
   socket.on("llamar",function(numero){
     console.log("llamando al numero %s",numero);
     models.llamar(numero);
-    setTimeout(function(){
-        socketio.sockets.emit("LlamadaContestada");
-    },5000);
-
   });
 
   socket.on("colgar",function(){
@@ -26,3 +22,5 @@ socketio.sockets.on("connection",function(socket){
   });
 
 });
+
+module.exports.socketio = socketio;
