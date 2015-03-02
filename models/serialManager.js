@@ -1,5 +1,7 @@
 var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
+var sleep = require('sleep');
+var datos = "";
 
 var gsmEntel = new SerialPort('/dev/ttyS3',{
   baudrate: 9600,
@@ -13,6 +15,7 @@ gsmEntel.open(function(error){
     console.log("gsmEntel OK");
     gsmEntel.on("data",function(data){
       console.log(data + '\n');
+      datos = datos + data;
     });
   }
 
@@ -29,21 +32,20 @@ var colgar = function(){
 };
 
 function initEstadoDeLlamada(){
-  setTimeout(function(){
-    gsmEntel.write("at+clcc \r\n");
-  },1000);
-  setTimeout(function(){
-    gsmEntel.write("at+clcc \r\n");
-  },2000);
-  setTimeout(function(){
-    gsmEntel.write("at+clcc \r\n");
-  },3000);
-  setTimeout(function(){
-    gsmEntel.write("at+clcc \r\n");
-  },4000);
-  setTimeout(function(){
-    gsmEntel.write("at+clcc \r\n");
-  },5000);
+    var llamadaContestada = false;
+    var interval = setInterval(function () {
+    	gsmEntel.write("at+clcc \r\n");
+    	console.log(datos);
+    	var index = datos.indexOf("+CLCC:");
+    	var estado = datos.charAt(index+11);
+	if(estado == 0){
+	  console.log("llamada contestada");
+	  llamadaContestada = true;
+	  clearInterval(interval);
+	}
+    	datos = datos.substring(index+6,datos.length);
+    },500);
+    
 }
 
 module.exports.llamar = llamar
