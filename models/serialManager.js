@@ -3,8 +3,6 @@ var SerialPort = serialport.SerialPort;
 var server = require('../server')
 var sleep = require('sleep');
 var datos = "";
-var saldo = 0;
-var segundos = 0;
 
 var gsmEntel = new SerialPort('/dev/ttyS3',{
   baudrate: 9600,
@@ -95,15 +93,13 @@ function coinProcess(data){
     case 65:
           console.log("monto ingresado: " + 1);
           var value = 1;
-          saldo = saldo + value;
-          segundos = segundos + value * 60;
+          server.setMonto(value);
           server.socketio.emit('IngresoMoneda',value);
           break;
     case 66:
           console.log("monto ingresado: " + 2);
           var value = 2;
-          saldo = saldo + value;
-          segundos = segundos + value * 60;
+          server.setMonto(value);
           server.socketio.emit('IngresoMoneda',value);
           break;
     case 67:
@@ -120,4 +116,3 @@ function coinProcess(data){
 
 module.exports.llamar = llamar
 module.exports.colgar = colgar
-module.exports.saldo = saldo

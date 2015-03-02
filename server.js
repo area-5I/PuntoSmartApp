@@ -2,6 +2,7 @@ var express = require('express');
 var socketio = require('socket.io').listen(1337);
 var models = require('./models/serialManager');
 var app = express();
+var monto = 0;
 
 
 app.use(express.static(__dirname + '/public'));
@@ -22,10 +23,15 @@ socketio.sockets.on("connection",function(socket){
   });
 
   socket.on("PedirSaldo",function(){
-      socketio.sockets.emit("FijarSaldo",models.saldo);
+      socketio.sockets.emit("FijarSaldo",monto);
   });
 
 
 });
 
+var setMonto = function(saldo){
+  monto = monto + saldo;
+};
+
 module.exports.socketio = socketio;
+module.exports.setMonto = setMonto;

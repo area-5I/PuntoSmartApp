@@ -13,6 +13,7 @@ angular.module('smartPointViewsApp')
       $scope.numero='';
       $scope.moneda=0;
 
+      socket.emit("PedirSaldo");
       socket.on("IngresoMoneda", function(monto){
           $scope.ingresoMoneda(monto);
       });
@@ -20,8 +21,6 @@ angular.module('smartPointViewsApp')
       socket.on("FijarSaldo", function(saldo){
           $scope.ingresoMoneda(saldo);
       });
-
-      socket.emit("PedirSaldo");
 
       $scope.marcar=function(teclaPulsada) {
           $scope.numero=$scope.numero.concat(teclaPulsada);
