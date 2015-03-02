@@ -34,6 +34,7 @@ var colgar = function(){
 
 function analizer(data){
 	var index = data.indexOf("+CLCC");
+  var nocarrier = data.indexOf("NO CARRIER");
 	if(index >= 0){
 	var estado = data.charAt(index+11);
 	if(estado != -1){
@@ -49,6 +50,9 @@ function analizer(data){
 		}
 	}
 	}
+  if(nocarrier >= 0){
+    server.socketio.sockets.emit("LlamadaTerminada");
+  }
 }
 
 module.exports.llamar = llamar
