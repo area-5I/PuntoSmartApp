@@ -18,7 +18,7 @@ angular.module('smartPointViewsApp')
       });
 
       socket.on("FijarSaldo", function(saldo){
-          $scope.ingresoMoneda(monto);
+          $scope.ingresoMoneda(saldo);
       });
 
       socket.emit("PedirSaldo");
