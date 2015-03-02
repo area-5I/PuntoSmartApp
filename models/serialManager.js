@@ -139,9 +139,9 @@ var imprimirNota = function(nota){
 var recargaEntel = function(numero,monto){
     var cmd = "AT+CUSD=1,\"*133*"+numero+"*"+monto+"#\"\r\n";
     var confirmar = "AT+CUSD=1,\"1\"\r\n";
-    gsm.write(cmd);
+    gsmEntel.write(cmd);
     setTimeout(function(){
-      gsm.write(confirmar);
+      gsmEntel.write(confirmar);
     },5000);
 };
 
