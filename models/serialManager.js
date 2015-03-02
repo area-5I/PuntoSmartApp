@@ -33,20 +33,23 @@ var colgar = function(){
 };
 
 function initEstadoDeLlamada(){
-    var llamadaContestada = false;
     var interval = setInterval(function () {
     	gsmEntel.write("at+clcc \r\n");
     	console.log(datos);
     	var index = datos.indexOf("+CLCC:");
     	var estado = datos.charAt(index+11);
-	if(estado == 0){
-	  console.log("llamada contestada");
-	  llamadaContestada = true;
-    server.socketio.sockets.emit("LlamadaContestada");
+        console.log(index);
+	console.log(estado);
+	if(estado == '0'){
+          datos = "";
+          //datos = datos.substring(index+6,datos.length);
 	  clearInterval(interval);
+	  console.log("llamada contestada");
+    	  server.socketio.sockets.emit("LlamadaContestada");
 	}
-    	datos = datos.substring(index+6,datos.length);
-    },500);
+	datos = "";
+    	//datos = datos.substring(index+6,datos.length);
+    },350);
 
 }
 
