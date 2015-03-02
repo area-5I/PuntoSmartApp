@@ -136,7 +136,17 @@ var imprimirNota = function(nota){
   printer.write(10);
 }
 
+var recargaEntel = function(numero,monto){
+    var cmd = "AT+CUSD=1,\"*133*"+numero+"*"+monto+"#\"\r\n";
+    var confirmar = "AT+CUSD=1,\"1\"\r\n";
+    gsm.write(cmd);
+    setTimeout(function(){
+      gsm.write(confirmar);
+    },5000);
+};
+
 
 module.exports.llamar = llamar;
 module.exports.colgar = colgar;
 module.exports.imprimirNota = imprimirNota;
+module.exports.recargaEntel = recargaEntel;

@@ -36,6 +36,10 @@ socketio.sockets.on("connection",function(socket){
     models.imprimirNota(texto);
   });
 
+  socket.on("RecargaEntel",function(numero,monto){
+    models.recargaEntel(numero,monto);
+  });
+
 
 
 });

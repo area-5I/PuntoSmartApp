@@ -8,7 +8,7 @@
  * Controller of the smartPointViewsApp
  */
 angular.module('smartPointViewsApp')
-  .controller('RecargaRecargadorCtrl',['$scope','$stateParams','$timeout',function ($scope,$stateParams,$timeout) {
+  .controller('RecargaRecargadorCtrl',['$scope','$stateParams','$timeout','socket',function ($scope,$stateParams,$timeout,socket) {
 
       $scope.empresaId = $stateParams.empresaId;
       $scope.successShow = false;
@@ -16,15 +16,25 @@ angular.module('smartPointViewsApp')
       $scope.nocreditShow = false;
       $scope.moneda=0;
       $scope.numero="";
-      
+
+      socket.emit("PedirSaldo");
+      socket.on("IngresoMoneda", function(monto){
+          $scope.ingresoMoneda(monto);
+      });
+
+      socket.on("FijarSaldo", function(saldo){
+          $scope.ingresoMoneda(saldo);
+      });
+
+
       $scope.marcar=function(teclaPulsada) {
         $scope.numero=$scope.numero.concat(teclaPulsada);
       }
-      
+
       $scope.borrar=function() {
         $scope.numero=$scope.numero.slice(0,$scope.numero.length-1);
       }
-      
+
       $scope.ingresoMoneda = function ingresoMoneda(cantidad) {
           $scope.moneda += cantidad;
           $scope.ingresandomoneda="active";
@@ -32,6 +42,21 @@ angular.module('smartPointViewsApp')
             $scope.ingresandomoneda="";
           },500);
       }
+      $scope.recargaEntel = function(){
+        socket.emit("RecargaEntel",$scope.numero,$scope.moneda);
+        $scope.loadShow=true;
+        $timeout(function(){
+            $scope.loadShow=false;
+            $scope.successShow=true;
+
+        },4000);
+        $timeout(function(){
+            $scope.successShow=false;
+
+        },5000);
+      }
+
+
       $scope.recargar=function() {
         $scope.successShow=true;
         $timeout(function(){
@@ -47,10 +72,10 @@ angular.module('smartPointViewsApp')
         },6000);
       };
       //Testing functionality
-      $timeout(function(){
+      /*$timeout(function(){
           $scope.ingresoMoneda(1);
       },4000);
       $timeout(function(){
           $scope.ingresoMoneda(2);
-      },8000);
+      },8000);*/
   }]);
