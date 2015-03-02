@@ -15,8 +15,8 @@ gsmEntel.open(function(error){
   }else{
     console.log("gsmEntel OK");
     gsmEntel.on("data",function(data){
-      console.log(data + '\n');
-      datos = datos + data;
+      console.log(data + "");
+      analizer(data);
     });
   }
 
@@ -25,31 +25,30 @@ gsmEntel.open(function(error){
 
 var llamar = function(numero){
   gsmEntel.write("atd"+numero+";\r\n");
-  initEstadoDeLlamada();
+  gsmEntel.write("at+clcc");
 };
 
 var colgar = function(){
   gsmEntel.write("ath \r\n");
 };
 
-function initEstadoDeLlamada(){
-    var interval = setInterval(function () {
-      datos = "";
-    	gsmEntel.write("at+clcc \r\n");
-    	console.log(datos);
-    	var index = datos.indexOf("+CLCC:");
-    	var estado = datos.charAt(index+11);
-      console.log(index);
-	    console.log(estado);
-	    if(estado == '0'){
-          //datos = datos.substring(index+6,datos.length);
-	        clearInterval(interval);
-	        console.log("llamada contestada");
-    	    server.socketio.sockets.emit("LlamadaContestada");
-	    }
-    	//datos = datos.substring(index+6,datos.length);
-    },350);
-
+function analizer(data){
+	var index = data.indexOf("+CLCC");
+	if(index >= 0){
+	var estado = data.charAt(index+11);
+	if(estado != -1){ 
+		console.log(index);
+		console.log(estado);
+		if(estado == 0){
+			server.socketio.sockets.emit("LlamadaContestada");
+			console.log("llamada contestada");
+		}
+		if(estado == 6){
+			console.log("llamada terminada");
+			//server.socketio.sockets.emit("llamadaTerminada");
+		}
+	}
+	}
 }
 
 module.exports.llamar = llamar
