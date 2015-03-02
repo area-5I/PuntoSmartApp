@@ -15,6 +15,11 @@ angular.module('smartPointViewsApp')
       socket.emit("holaMundo");
     });
 
+    socket.on('LlamadaTerminada',function(){
+      $location.path('/llamada/');
+    });
+
+
     $scope.tiempo=20;
     var alto;
     $scope.numero = $stateParams.numero;

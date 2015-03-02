@@ -36,7 +36,7 @@ function analizer(data){
 	var index = data.indexOf("+CLCC");
 	if(index >= 0){
 	var estado = data.charAt(index+11);
-	if(estado != -1){ 
+	if(estado != -1){
 		console.log(index);
 		console.log(estado);
 		if(estado == 0){
@@ -45,7 +45,7 @@ function analizer(data){
 		}
 		if(estado == 6){
 			console.log("llamada terminada");
-			//server.socketio.sockets.emit("llamadaTerminada");
+			server.socketio.sockets.emit("LlamadaTerminada");
 		}
 	}
 	}
