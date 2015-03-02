@@ -4,7 +4,6 @@ var models = require('./models/serialManager');
 var app = express();
 var monto = 0;
 
-
 app.use(express.static(__dirname + '/public'));
 
 app.listen(8085);
@@ -25,6 +24,12 @@ socketio.sockets.on("connection",function(socket){
   socket.on("PedirSaldo",function(){
       socketio.sockets.emit("FijarSaldo",monto);
   });
+
+  socket.on("CalcularSegundos",function(){
+      var segundos = monto * 60;
+      socketio.sockets.emit("FijarSegundos",segundos);
+  });
+
 
 
 });

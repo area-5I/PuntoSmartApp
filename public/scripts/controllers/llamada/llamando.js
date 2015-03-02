@@ -9,6 +9,8 @@
  */
 angular.module('smartPointViewsApp')
   .controller('LlamadaLlamandoCtrl',['$scope','$location','$stateParams','$log','$interval','$timeout','socket',function ($scope,$location,$stateParams,$log,$interval,$timeout,socket) {
+    $scope.tiempo=0;
+    socket.emit("CalcularSegundos");
     socket.on('LlamadaContestada',function(){
       $scope.contadorFlag = true;
       $scope.msgLlamando = false;
@@ -19,8 +21,10 @@ angular.module('smartPointViewsApp')
       $location.path('/llamadas');
     });
 
+    socket.on("FijarSegundos",function(segundos){
+          $scope.tiempo=segundos;
+    });
 
-    $scope.tiempo=20;
     var alto;
     $scope.numero = $stateParams.numero;
     $log.debug($stateParams);
