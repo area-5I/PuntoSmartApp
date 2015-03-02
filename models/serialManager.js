@@ -51,6 +51,7 @@ function analizer(data){
 	}
 	}
   if(nocarrier >= 0){
+    console.log("no carrier");
     server.socketio.sockets.emit("LlamadaTerminada");
   }
 }

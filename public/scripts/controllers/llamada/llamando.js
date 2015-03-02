@@ -8,7 +8,7 @@
  * Controller of the smartPointViewsApp
  */
 angular.module('smartPointViewsApp')
-  .controller('LlamadaLlamandoCtrl',['$scope','$stateParams','$log','$interval','$timeout','socket',function ($scope,$stateParams,$log,$interval,$timeout,socket) {
+  .controller('LlamadaLlamandoCtrl',['$scope','$location','$stateParams','$log','$interval','$timeout','socket',function ($scope,$location,$stateParams,$log,$interval,$timeout,socket) {
     socket.on('LlamadaContestada',function(){
       $scope.contadorFlag = true;
       $scope.msgLlamando = false;
