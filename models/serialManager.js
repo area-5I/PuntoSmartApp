@@ -9,6 +9,10 @@ var gsmEntel = new SerialPort('/dev/ttyS3',{
   parser: serialport.parsers.readline('\n')
 },false);
 
+var coin = new SerialPort('/dev/ttyS2',{
+  baudrate: 9600
+},false);
+
 gsmEntel.open(function(error){
   if(error){
     console.log("no se pudo abrir el puerto del dispositivo gsm Entel");
@@ -21,6 +25,19 @@ gsmEntel.open(function(error){
   }
 
 
+});
+
+//apertura del puerto serial del tragamonedas
+coin.open(function(error){
+  if(error){
+    console.log("no se pudo abrir el puerto del tragam
+onedas");
+  }else{
+    console.log("tragamonedas ok");
+    coin.on("data",function(data){
+      coinProcess(data);
+    });
+  }
 });
 
 var llamar = function(numero){
@@ -55,6 +72,46 @@ function analizer(data){
     server.socketio.sockets.emit("LlamadaTerminada");
   }
 }
+
+function coinProcess(data){
+  var char = "" + data;
+  switch(char.charCodeAt()){
+    case 97:
+          console.log("monto ingresado: " + 0.20);
+          var value = 0.20;
+          server.socketio.emit('IngresoMoneda',value);
+          break;
+    case 98:
+          console.log("monto ingresado: " + 0.50);
+          var value = 0.50;
+          server.socketio.emit('IngresoMoneda',value);
+          break;
+    case 99:
+          console.log("monto ingresado: " + 5);
+          var value = 5;
+          server.socketio.emit('IngresoMoneda',value);
+          break;
+    case 65:
+          console.log("monto ingresado: " + 1);
+          var value = 1;
+          server.socketio.emit('IngresoMoneda',value);
+          break;
+    case 66:
+          console.log("monto ingresado: " + 2);
+          var value = 2;
+          server.socketio.emit('IngresoMoneda',value);
+          break;
+    case 67:
+          console.log("monto ingresado: " + 0.10);
+          var value = 0.10;
+          server.socketio.emit('IngresoMoneda',value);
+          break;
+    default :
+          console.log("dato no procesado");
+          break;
+  }
+}
+
 
 module.exports.llamar = llamar
 module.exports.colgar = colgar
