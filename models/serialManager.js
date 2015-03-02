@@ -129,7 +129,8 @@ function coinProcess(data){
 }
 
 var imprimirNota = function(nota){
-  printer.write(nota);
+  printer.write(nota+"/r/n");
+  printer.write(10);
   printer.write(10);
   printer.write(10);
   printer.write(10);
