@@ -7,6 +7,7 @@ $colorOrange:#ec6a34;
 $colorGreen:#009d45;
 $colorBlue:#0974ba;
 $colorRed:#e41f25;
+$color:#80BFFF;
 @mixin clearSpace {
     margin:0;
     padding:0;
@@ -72,9 +73,13 @@ $colorRed:#e41f25;
 }
 
 body {
+    -webkit-transform: rotate(90deg);
     font: 71%/1.5 Gothic;
-    height:100vh;
+    height:125vh;
     overflow: hidden;
+    /*background-color: $color;*/
+    background-image: url('../images/puntosmart.jpg');
+
 }
 
 .container {
@@ -129,7 +134,7 @@ button:focus {
 
 .header {
     display: inline-flex;
-    width: 100%;
+    width: 85%;
     color: #ffffff;
     padding: 0.1em 0;
     transition: background-color 500ms linear;
@@ -138,7 +143,7 @@ button:focus {
 #signalPanel {
     padding-right: 8%;
     padding-left: 1%;
-    width: 30%; 
+    width: 30%;
     ul {
         @include clearSpace;
         list-style: none;
@@ -173,7 +178,7 @@ button:focus {
 @keyframes slideOutLeft {
 to      { transform: translateX(-200%); }
 }
-@-moz-keyframes slideOutLeft {  
+@-moz-keyframes slideOutLeft {
 to      { -moz-transform: translateX(-200%); }
 }
 @-webkit-keyframes slideOutLeft {
@@ -198,21 +203,21 @@ to      { -webkit-transform: translateX(-200%); }
 
 #transitiones.ng-enter,
 #transitiones.ng-leave {
-    position:absolute; 
-    left:30px; 
+    position:absolute;
+    left:30px;
     right:30px;
-    transition:0.5s all ease; 
-    -webkit-transition:0.5s all ease; 
+    transition:0.5s all ease;
+    -webkit-transition:0.5s all ease;
 }
 
 #transitiones.ng-enter {
     -webkit-animation:slideInRight 0.5s both ease;
-    animation:slideInRight 0.5s both ease; 
+    animation:slideInRight 0.5s both ease;
 }
 
 #transitiones.ng-leave {
     -webkit-animation:slideOutLeft 0.5s both ease;
-    animation:slideOutLeft 0.5s both ease;   
+    animation:slideOutLeft 0.5s both ease;
 }
 //-----------------------------
 .Panel.change {
@@ -244,11 +249,12 @@ to      { -webkit-transform: translateX(-200%); }
 //----------------------------
 
 .init {
-    @include flexPanel(flex,column,wrap,space-around,stretch,stretch,100%,100%,0%,0);
+    @include flexPanel(flex,column,wrap,space-around,stretch,stretch,80%,100%,0%,0);
+
 }
 
 .initReposo {
-    @include flexPanel(inline-flex,row,wrap,space-around,stretch,stretch,100%,none,100% 0% 0% 0%,0);
+    @include flexPanel(inline-flex,row,wrap,space-around,stretch,stretch,80%,none,80% 0% 0% 0%,0);
     .Panel {
         height:100%;
         margin:0;
@@ -272,11 +278,11 @@ to      { -webkit-transform: translateX(-200%); }
 }
 
 .Panel {
-    @include flexChild(1,0 1 auto,stretch,15%,2% 15%, 2% 5%);
+    @include flexChild(1,0 1 auto,stretch,13%,0% 14%, 2.5% 5%);
     color: #ffffff;
     width: 60%;
     border-radius: 0.5em;
-    font-size: 6em;
+    font-size: 6.3em;
     text-decoration: none;
     display: inline-flex;
     transition: all 1s cubic-bezier(.77,.13,.06,.99);
@@ -296,7 +302,7 @@ to      { -webkit-transform: translateX(-200%); }
     width: 2em;
     height: 2em;
     float: right;
-    margin:0.2em 0;
+    margin:0.1em 0;
 }
 
 .greenPanel {
@@ -312,7 +318,7 @@ to      { -webkit-transform: translateX(-200%); }
 }
 
 .bluePanel {
-    @include panel($colorBlue,#02619d); 
+    @include panel($colorBlue,#02619d);
 }
 
 //import file's style
