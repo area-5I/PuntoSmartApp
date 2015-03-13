@@ -50,9 +50,16 @@ socketio.sockets.on("connection",function(socket){
 
 });
 
-var setMonto = function(saldo){
-  monto = monto + saldo;
+var sumarMonto = function(mnt){
+  monto = monto + mnt;
 };
 
+var restarMonto = function(mnt){
+  monto = monto - mnt;
+  socketio.sockets.emit("FijarSaldo",monto);
+};
+
+
 module.exports.socketio = socketio;
-module.exports.setMonto = setMonto;
+module.exports.sumarMonto = sumarMonto;
+module.exports.restarMonto = restarMonto;

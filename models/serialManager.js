@@ -106,6 +106,7 @@ function analizerEntel(data){
 		if(estado == 0){
 			server.socketio.sockets.emit("LlamadaContestada");
 			console.log("llamada contestada");
+      server.restarMonto(1);
 		}
 		if(estado == 6){
 			console.log("llamada terminada");
@@ -135,18 +136,19 @@ function coinProcess(data){
     case 99:
           console.log("monto ingresado: " + 5);
           var value = 5;
+          server.sumarMonto(value);
           server.socketio.emit('IngresoMoneda',value);
           break;
     case 65:
           console.log("monto ingresado: " + 1);
           var value = 1;
-          server.setMonto(value);
+          server.sumarMonto(value);
           server.socketio.emit('IngresoMoneda',value);
           break;
     case 66:
           console.log("monto ingresado: " + 2);
           var value = 2;
-          server.setMonto(value);
+          server.sumarMonto(value);
           server.socketio.emit('IngresoMoneda',value);
           break;
     case 67:
@@ -161,11 +163,11 @@ function coinProcess(data){
 }
 
 var imprimirNota = function(nota){
-  printer.write(nota+"/r/n");
-  printer.write(10);
-  printer.write(10);
-  printer.write(10);
-  printer.write(10);
+  printer.write(nota);
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
 }
 
 var recargaEntel = function(numero,monto){
@@ -174,12 +176,14 @@ var recargaEntel = function(numero,monto){
     gsmEntel.write(cmd);
     setTimeout(function(){
       gsmEntel.write(confirmar);
+      server.restarMonto(monto);
     },5000);
 };
 
 var recargaViva = function(numero,monto){
   var cmd = "AT+CUSD=1,\"*601*1111*"+numero+"*"+monto+"#\"\r\n";
   gsmViva.write(cmd);
+  server.restarMonto(monto);
 };
 
 var recargaTigo = function(numero,monto){
@@ -188,6 +192,7 @@ var recargaTigo = function(numero,monto){
     gsmTigo.write(cmd);
     setTimeout(function(){
       gsmTigo.write(confirmar);
+      server.restarMonto(monto);
     },5000);
 };
 
