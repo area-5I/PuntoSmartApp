@@ -215,6 +215,6 @@ angular
     .factory('socket', function (socketFactory) {
         return socketFactory({
           prefix: 'foo~',
-          ioSocket: io.connect('http://192.168.1.157:1337')
+          ioSocket: io.connect('http://192.168.1.2:1337')
         });
     });

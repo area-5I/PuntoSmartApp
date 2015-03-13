@@ -4,16 +4,16 @@ var server = require('../server')
 var sleep = require('sleep');
 var datos = "";
 
-var gsmEntel = new SerialPort('/dev/ttyS3',{
+var gsmEntel = new SerialPort('/dev/ttyS1',{
   baudrate: 9600,
   parser: serialport.parsers.readline('\n')
 },false);
 
-var coin = new SerialPort('/dev/ttyS2',{
+var coin = new SerialPort('/dev/ttyS0',{
   baudrate: 9600
 },false);
 
-var printer = new SerialPort('/dev/ttyS1',{
+var printer = new SerialPort('/dev/ttyS2',{
   baudrate: 19200
 },false);
 
