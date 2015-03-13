@@ -56,6 +56,45 @@ angular.module('smartPointViewsApp')
         },5000);
       }
 
+      $scope.recargaViva = function(){
+        socket.emit("RecargaViva",$scope.numero,$scope.moneda);
+        $scope.loadShow=true;
+        $timeout(function(){
+            $scope.loadShow=false;
+            $scope.successShow=true;
+
+        },6000);
+        $timeout(function(){
+            $scope.successShow=false;
+
+        },5000);
+      }
+
+      $scope.recargaTigo = function(){
+        socket.emit("RecargaTigo",$scope.numero,$scope.moneda);
+        $scope.loadShow=true;
+        $timeout(function(){
+            $scope.loadShow=false;
+            $scope.successShow=true;
+
+        },6000);
+        $timeout(function(){
+            $scope.successShow=false;
+
+        },5000);
+      }
+
+      $scope.recarga=function(){
+        if($scope.empresaId == "viva"){
+          $scope.recargaViva();
+        }
+        if($scope.empresaId == "entel"){
+          $scope.recargaEntel();
+        }
+        if($scope.empresaId == "tigo"){
+          $scope.recargaTigo();
+        }
+      }
 
       $scope.recargar=function() {
         $scope.successShow=true;
