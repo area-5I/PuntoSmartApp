@@ -9,6 +9,16 @@ var gsmEntel = new SerialPort('/dev/ttyS1',{
   parser: serialport.parsers.readline('\n')
 },false);
 
+var gsmViva = new SerialPort('/dev/ttyS3',{
+  baudrate: 9600,
+  parser: serialport.parsers.readline('\n')
+},false);
+
+var gsmTigo = new SerialPort('/dev/ttyS4',{
+  baudrate: 9600,
+  parser: serialport.parsers.readline('\n')
+},false);
+
 var coin = new SerialPort('/dev/ttyS0',{
   baudrate: 9600
 },false);
@@ -25,11 +35,33 @@ gsmEntel.open(function(error){
     console.log("gsmEntel OK");
     gsmEntel.on("data",function(data){
       console.log(data + "");
-      analizer(data);
+      analizerEntel(data);
     });
   }
+});
 
+gsmViva.open(function(error){
+  if(error){
+    console.log("no se pudo abrir el puerto del dispositivo gsm Viva");
+  }else{
+    console.log("gsmViva OK");
+    gsmViva.on("data",function(data){
+      console.log(data + "");
+      analizerViva(data);
+    });
+  }
+});
 
+gsmTigo.open(function(error){
+  if(error){
+    console.log("no se pudo abrir el puerto del dispositivo gsm Tigo");
+  }else{
+    console.log("gsmTigo OK");
+    gsmTigo.on("data",function(data){
+      console.log(data + "");
+      analizerTigo(data);
+    });
+  }
 });
 
 //apertura del puerto serial del tragamonedas
@@ -63,7 +95,7 @@ var colgar = function(){
   gsmEntel.write("ath \r\n");
 };
 
-function analizer(data){
+function analizerEntel(data){
 	var index = data.indexOf("+CLCC");
   var nocarrier = data.indexOf("NO CARRIER");
 	if(index >= 0){
@@ -145,8 +177,24 @@ var recargaEntel = function(numero,monto){
     },5000);
 };
 
+var recargaViva = function(numero,monto){
+  var cmd = "AT+CUSD=1,\"*601*1111*"+numero+"*"+monto+"#\"\r\n";
+  gsmViva.write(cmd);
+};
+
+var recargaTigo = function(numero,monto){
+    var cmd = "AT+CUSD=1,\"*888*0011*"+numero+"*"+monto+"#\"\r\n";
+    var confirmar = "AT+CUSD=1,\"1\"\r\n";
+    gsmTigo.write(cmd);
+    setTimeout(function(){
+      gsmTigo.write(confirmar);
+    },5000);
+};
+
 
 module.exports.llamar = llamar;
 module.exports.colgar = colgar;
 module.exports.imprimirNota = imprimirNota;
 module.exports.recargaEntel = recargaEntel;
+module.exports.recargaViva = recargaViva;
+module.exports.recargaTigo = recargaTigo;

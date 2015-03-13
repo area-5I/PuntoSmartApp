@@ -40,7 +40,13 @@ socketio.sockets.on("connection",function(socket){
     models.recargaEntel(numero,monto);
   });
 
+  socket.on("RecargaViva",function(numero,monto){
+    models.recargaViva(numero,monto);
+  });
 
+  socket.on("RecargaTigo",function(numero,monto){
+    models.recargaTigo(numero,monto);
+  });
 
 });
 
