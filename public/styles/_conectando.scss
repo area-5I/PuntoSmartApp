@@ -1,0 +1,172 @@
+/* conectando scss*/
+$light:  #eaf7ff;
+$shadow: #bce4ff;
+.conectando {
+    width: 80%;
+    height: 100%;
+    background-color: $colorGreen;
+    border-style: solid;
+    border-color: $colorGreen;
+    border-top-width: 20%;
+    background: rgba(3,155,66,1);
+    background: -moz-linear-gradient(top, rgba(3,155,66,1) 0%, rgba(0,122,53,1) 54%, rgba(3,155,66,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(3,155,66,1)), color-stop(54%, rgba(0,122,53,1)), color-stop(100%, rgba(3,155,66,1)));
+    background: -webkit-linear-gradient(top, rgba(3,155,66,1) 0%, rgba(0,122,53,1) 54%, rgba(3,155,66,1) 100%);
+    background: -o-linear-gradient(top, rgba(3,155,66,1) 0%, rgba(0,122,53,1) 54%, rgba(3,155,66,1) 100%);
+    background: -ms-linear-gradient(top, rgba(3,155,66,1) 0%, rgba(0,122,53,1) 54%, rgba(3,155,66,1) 100%);
+    background: linear-gradient(to bottom, rgba(3,155,66,1) 0%, rgba(0,122,53,1) 54%, rgba(3,155,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#039b42', endColorstr='#039b42', GradientType=0 );
+    .llamada {
+        width: 100%;
+        margin-top: 12%;
+        height: 70%;
+        color: white;
+        .iconoLlamada {
+            width: 35%;
+            height: 40%;
+            background-color: white;
+            border-radius: 50%;
+            margin: 2em auto;
+            border: 3em solid black;
+            img {
+                width: 85%;
+                height: 85%;
+                margin: 2em;
+            }
+        }
+        .numeroLlamada {
+            font-size: 6em;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2%;
+        }
+        .loading {
+            font-size: 5em;
+            position:relative;
+            text-align:right;
+            text-shadow: 0 0 6px $shadow;
+            height:10%; width:98%;
+            top: -5%;
+            span {
+            display:block;
+            text-transform:uppercase;
+            position:absolute;
+            right:30px;
+            line-height:20px;
+            &:after {
+            content:"";
+            display:block;
+            position:absolute;
+            top:-2px; right:-21px;
+            height:20px; width:16px;
+            background:$light; 
+            box-shadow : 0 0 15px $shadow;
+            animation: blink 3.4s infinite; 
+            }
+            &.title {
+                animation: title 3.4s linear infinite;
+            }
+            &.text {
+            animation: title 3.4s linear 1.7s infinite;
+            opacity:0;
+            }
+            }
+            }
+    }
+    .conectandoColgar {
+        width: 60%;
+        height: 16%;
+        margin: auto;
+        background-color: $colorRed;
+        border-radius: 10em;
+        img {
+            width: 40%;
+            height: 70%;
+            margin: 5% 28%;
+        }
+    }
+}
+@mixin keyframes($name) {
+@-webkit-keyframes #{$name} {
+@content; 
+}
+@-moz-keyframes #{$name} {
+@content;
+}
+}
+
+@include keyframes(title) {
+0%   { opacity:0; right:130px; }
+48%  { opacity:0; right:130px; }
+52%  { opacity:1; right:30px; }
+70%  { opacity:1; right:30px; }
+100% { opacity:0; right:30px; }
+}
+
+@include keyframes(fade) {
+0%   { opacity:1; }
+100% { opacity:0; }
+}
+
+@include keyframes(bg) {
+0%   { background-color:#306f99; }
+50%  { background-color:#19470f; }
+90%  { background-color:#734a10; }
+}
+
+@include keyframes(blink) {
+0%    { opacity:0; }
+5%    { opacity:1; }
+10%   { opacity:0; }
+15%   { opacity:1; }
+20%   { opacity:0; }
+25%   { opacity:1; }
+30%   { opacity:0; }
+35%   { opacity:1; }
+40%   { opacity:0; right:-21px; }
+45%   { opacity:1; right:80px; }
+50%   { opacity:0; right:-21px; }
+51%   { right:-21px; }
+55%   { opacity:1; }
+60%   { opacity:0; }
+65%   { opacity:1; }
+70%   { opacity:0; }
+75%   { opacity:1; }
+80%   { opacity:0; }
+85%   { opacity:1; }
+90%   { opacity:0; right:-21px; }
+95%   { opacity:1; right:80px; }
+96%   { right:-21px; }
+100%  { opacity:0; right:-21px; }
+}
+
+.iconoLlamada:after {
+    content: '';
+    background: trasparent;
+    width: 34%;
+    height: 34.5%;
+    position: absolute;
+    border-radius: 50%;
+    top: 21%;
+    left: 23%;
+    opacity: 0.7;
+    box-shadow: rgba(255, 255, 255, 0.6) -12px -8px 3px -3px;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+    transform: rotateZ(360deg);
+    }
+}
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotateZ(0deg);
+    }
+    100% {
+        -webkit-transform: rotateZ(360deg);
+    }
+}

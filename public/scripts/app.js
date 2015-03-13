@@ -80,6 +80,11 @@ angular
       .state('llamando.hextris', {
         url:'/hextris',
         templateUrl: 'views/llamada/hextris.html'
+      })
+      .state('conectando', {
+        url: '/conectando/:numero',
+        templateUrl: 'views/llamada/conectando.html',
+        controller: 'LlamadaConectandoCtrl'
       });
   })
     .service('changeColorHeader', function () {
@@ -215,6 +220,6 @@ angular
     .factory('socket', function (socketFactory) {
         return socketFactory({
           prefix: 'foo~',
-          ioSocket: io.connect('http://192.168.1.2:1337')
+          ioSocket: io.connect('http://192.168.0.2:1337')
         });
     });

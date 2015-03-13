@@ -11,11 +11,11 @@ angular.module('smartPointViewsApp')
   .controller('LlamadaLlamandoCtrl',['$scope','$location','$stateParams','$log','$interval','$timeout','socket',function ($scope,$location,$stateParams,$log,$interval,$timeout,socket) {
     $scope.tiempo=0;
     socket.emit("CalcularSegundos");
-    socket.on('LlamadaContestada',function(){
+   /* socket.on('LlamadaContestada',function(){
       $scope.contadorFlag = true;
       $scope.msgLlamando = false;
       socket.emit("holaMundo");
-    });
+    });*/
 
     socket.on('LlamadaTerminada',function(){
       $location.path('/llamadas');
@@ -53,8 +53,8 @@ angular.module('smartPointViewsApp')
         }
     };
 
-    $scope.contadorFlag = false;
-    $scope.msgLlamando = true;
+    $scope.contadorFlag = true;
+    $scope.msgLlamando = false;
 
     $scope.llamadaContestada = function(){
         $scope.contadorFlag = true;

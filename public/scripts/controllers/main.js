@@ -21,7 +21,7 @@ angular.module('smartPointViewsApp')
     $timeout(function(){
         //$scope.reposo="initReposo";
         $scope.changePosition='change';
-    },10000);
+    },4000);
     $timeout(function(){
         $scope.reposo='initReposo';
         $scope.changePosition='';
