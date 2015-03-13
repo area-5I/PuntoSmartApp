@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="styles/flags/phoca-flags.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="smartPointViewsApp">
-
+  <body ng-app="smartPointViewsApp" oncontextmenu="return false" onmousedown="return false">
     <div class="container" ng-controller="MainCtrl">
         <div class="header" ng-class="headerColor()">
             <div id="signalPanel">
@@ -67,6 +66,7 @@
         <script src="scripts/controllers/emergencia/llamando.js"></script>
         <script src="scripts/controllers/ayuda/buscar.js"></script>
         <script src="scripts/controllers/llamada/ubicacion.js"></script>
+        <script src="scripts/controllers/llamada/conectando.js"></script>
         <!-- endbuild -->
 </body>
 </html>

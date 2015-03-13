@@ -79,7 +79,6 @@ body {
     overflow: hidden;
     /*background-color: $color;*/
     background-image: url('../images/puntosmart.jpg');
-    cursor: none;
 
 }
 
@@ -329,3 +328,5 @@ to      { -webkit-transform: translateX(-200%); }
 @import 'ayuda';
 @import 'keyboard';
 @import 'modaldialog';
+@import 'conectando';
+
