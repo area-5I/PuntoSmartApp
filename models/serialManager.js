@@ -168,6 +168,14 @@ var imprimirNota = function(nota){
   printer.write("\n");
   printer.write("\n");
   printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
+  printer.write("\n");
 }
 
 var recargaEntel = function(numero,monto){
