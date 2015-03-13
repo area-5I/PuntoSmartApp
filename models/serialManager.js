@@ -47,7 +47,7 @@ gsmViva.open(function(error){
     console.log("gsmViva OK");
     gsmViva.on("data",function(data){
       console.log(data + "");
-      analizerViva(data);
+      //analizerViva(data);
     });
   }
 });
@@ -59,7 +59,7 @@ gsmTigo.open(function(error){
     console.log("gsmTigo OK");
     gsmTigo.on("data",function(data){
       console.log(data + "");
-      analizerTigo(data);
+      //analizerTigo(data);
     });
   }
 });
