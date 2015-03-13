@@ -1,12 +1,12 @@
 /*keyboard Directive style*/
 
 .keyboardDirective {
-    height: 28%;
-    width: 92%;
+    height: 28%;/*28*/
+    width: 75%;
     position: fixed;
     z-index: 100;
     top: 70%;
-    left:3%;
+    right:24%;
 }
 
 .keyboardDirective.ng-hide-add.ng-hide-add-active,
@@ -29,7 +29,7 @@
     opacity: .9;
     padding: 1em;
     border-radius: .5em .5em 3em 3em;
-    
+
     li {
         display:inline-block;
         margin: 0 5px 5px 0;
@@ -66,13 +66,14 @@
     }
     .specialkey {
         background-color: #353535;
+        width: 2.5em;
     }
     .lastitem {
         margin-right: 0em;
     }
     .delete {
         margin-right:0;
-        margin-left: 2em;
+        margin-left: 1.7em;
         width: 2.2em;
         img {
             margin-top: .3em;
@@ -83,7 +84,7 @@
         width: 3em;
     }
     .space {
-        width: 56%;
+        width: 42%;
     }
     .shift {
         width: 2.2em;

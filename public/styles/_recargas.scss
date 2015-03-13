@@ -7,14 +7,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: space-around;
+    align-content: space-around; //space-around
     align-items: center;
 }
 
 .circlePanel {
-    width: 42%;
+    width: 42%;/*42*/
     height: 35%;
-    margin: 2%;
+    margin: 2%;/*2*/
     font-size: 6.5em;
     text-align: center;
     border-radius: 50%;
@@ -22,22 +22,22 @@
 }
 
 .circlePanel>img {
-    width: 4.5em;
+    width: 4.2em;
     padding: 0.5em;
     height: 4.5em;
 }
 
 #atrasEmpresas>img {
-    padding: 1.4em;
-    width: 3em;
-    height: 3em;
+    padding: 1em .3em;
+    width: 4em;
+    height: 4em;
 }
 
 //recargar view
 .idEmpresa {
     position:absolute;
     top:0;
-    right:0.5em;
+    right:6.8em;
     font-size:3.5em;
     width: 1.8em;
     height: 1.8em;
@@ -46,19 +46,19 @@
 }
 
 .opcionesRecargas {
-    margin-left:18%;
+    margin-left:12%;/*18*/
     width:80%;
     height:12%;
     color:white;
     .textoSaldo {
         float:left;
         width:48%;
-        height:100%;
+        height:80%;
         background-color:$colorOrange;
         border-radius:5em;
         p {
-            font-size:2.8em;
-            margin:0; 
+            font-size:2em;
+            margin:0;
             line-height:3.7em;
             text-align:center;
         }
@@ -69,26 +69,26 @@
         float:left;
         width:20%;
         height:100%;
-        font-size:6em;
+        font-size:4em;
         font-weight: bold;
         line-height:2em;
         .moneda {
             float:left;
             width: 100%;
-            height:100%;
+            height:80%;
             background-color:$colorOrange;
             text-align:center;
             border-radius:50%;
         }
     }
     .entrada {
-        height: 50%;
-        width: 20%;
+        height: 60%;
+        width: 21%;
         background-color: $colorOrange;
         position:relative;
         border-radius: 3em;
         float:left;
-        margin-top:5%;
+        margin-top:5%;/*5*/
         .ingresoMoneda {
             position:absolute;
             padding:0.1em 0.3em;
@@ -102,14 +102,14 @@
             transition: all 500ms linear;
         }
         .ingresoMoneda.active {
-            margin-left:50%; 
+            margin-left:50%;
         }
         .flecha {
             width: 0;
             height: 0;
             border-top: 2em solid transparent;
             border-bottom: 2em solid transparent;
-            border-left:2em solid #000;
+            border-left:1em solid #000;
             float:right;
             opacity:0.5;
             margin-top:0.75em;
@@ -118,16 +118,19 @@
     }
 }
 .cuerpoRecarga {
-    margin-left:10%;
+    /*margin-left:0%;
+    margin-bottom:0%;
+    margin-top:0%;*/
     .tecladito {
-        width:90%;
+        width:100%;
+        font-size:0.6em;
     }
-    width:80%;
-    height:60%;
+    width:100%;/*80*/
+    height:50%;
 }
 .recargar {
     $sizeLetter:6em;
-    margin-left:18%;
+    margin-left:11%;/*18*/
     width:70%;
     height:12%;
     &>button {
@@ -141,9 +144,9 @@
         }
     }
     &>.atras {
-        margin-left:7%;
+        margin-left:7%;/*7*/
         border-radius:50%;
-        width: 25%;
+        width: 25%;/*25*/
         height: 100%;
         background-color:$colorOrange;
         &>img {
