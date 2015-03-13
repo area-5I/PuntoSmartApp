@@ -56,7 +56,7 @@ var sumarMonto = function(mnt){
 
 var restarMonto = function(mnt){
   monto = monto - mnt;
-  socketio.sockets.emit("FijarSaldo",monto);
+  socketio.sockets.emit("FijarSaldo",-mnt);
 };
 
 
